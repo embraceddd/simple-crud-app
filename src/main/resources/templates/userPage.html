@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="DELETE" th:action="@{http://localhost:8080/users/delete/{id}(id=${person.getId()})}"
+      th:object="${person}">
+    <h3>имя</h3>
+    <p th:text="${person.getName()}"></p>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    <h3>возраст</h3>
+    <p th:text="${person.getAge()}"></p>
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+    <h3>почта</h3>
+    <p th:text="${person.getEmail()}"></p>
+    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+    <button><a th:href="@{{id}/edit(id=${person.getId()})}">редактировать человечка</a></button>
+    <input type="submit" value="удалить">
+</form>
+<a href="http://localhost:8080/users">back</a>
+</body>
+</html>

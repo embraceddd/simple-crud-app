@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{http://localhost:8080/users/}" th:object="${person}">
+    <label for="name">введи имя</label>
+    <input type="text" th:field="*{name}" id="name">
+    <label for="age">введи возраст</label>
+    <input type="text" th:field="*{age}" id="age">
+    <label for="email">введи почту бро</label>
+    <input type="text" th:field="*{email}" id="email">
+    <input type="submit" value="sbm-btn">
+</form>
+</body>
+</html>
